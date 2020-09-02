@@ -234,7 +234,7 @@ def __new_validate__(self, instance, REQUEST, errors, data, metadata):
                                          empty_marker=_marker)
         else:
             result = None
-        if IMultilanguageField.providedBy(field):
+        if IMultilanguageField.providedBy(field) and result:
             value = {}
             for l, r in result[0].items():
                 if r is None or r is _marker:
